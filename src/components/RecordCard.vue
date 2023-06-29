@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <h2 class="book-title">Record Name</h2>
-    <h3 class="book-author">Record Artist</h3>
+    <h2 class="record-title">{{record.basic_information.title}}</h2>
+    <h3 class="record-artist">{{record.basic_information.artists[0].name}}</h3>
   </div>
 </template>
 
@@ -31,11 +31,11 @@ export default {
     background-color: lightgray;
 }
 
-.card .book-title {
+.card .record-title {
     font-size: 1.5rem;
 }
 
-.card .book-author {
+.card .record-artist {
     font-size: 1rem;
 }
 </style>

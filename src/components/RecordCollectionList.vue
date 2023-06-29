@@ -2,9 +2,8 @@
 <section>
   <h2>Record Collection List</h2>
   <div class="record-collection-list">
-    <div>{{$store.state}}</div>
-    <div>{{this.$store.state.releases}}</div>
-    <record-card v-bind:record="record" v-for="record in $store.state.releases" v-bind:key="record.id"></record-card>
+    <record-card v-bind:record="record" v-for="record in $store.state.releases.releases" v-bind:key="record.id"></record-card>
+  <div>{{this.$store.state.releases.releases}}</div>
   </div>
   </section>
 </template>
@@ -31,7 +30,7 @@ export default {
 </script>
 
 <style>
-.new-releases-list {
+.record-collection-list {
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
