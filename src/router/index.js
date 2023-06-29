@@ -3,7 +3,10 @@ import VueRouter from 'vue-router';
 import RecordCollectionList from "../components/RecordCollectionList.vue";
 import RecordDetails from "../components/RecordDetails.vue"
 
+//import { createRouter, createWebHistory } from 'vue-router'
+
 Vue.use(VueRouter);
+
 
 const routes = [
  {path: '/',
@@ -19,7 +22,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes
 });
 
