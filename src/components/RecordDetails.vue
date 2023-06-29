@@ -1,13 +1,17 @@
 <template>
-  <div class="detail-view">
+  <div class="detail-view"><div>
     <router-link to="/">Return to Collection</router-link>
-    <h2 class="record-title"><a v-bind:href="'/record/'+record.id">{{ record.basic_information.title }}</a></h2>
+    <h2 class="record-title">{{ record.basic_information.title }}</h2>
     <img class="record-image" v-bind:src="record.basic_information.cover_image">
-    <h3 class="record-artist">{{record.basic_information.artists[0].name}} - {{record.basic_information.year}}</h3>
+    <h3 class="record-artist">{{record.basic_information.artists[0].name}} - {{record.basic_information.year}}</h3></div>
     <div>Record Label: {{record.basic_information.labels[0].name}}</div><br>
     <div>Catalog Number: {{record.basic_information.labels[0].catno}}</div>
-    <div>Genres: {{record.basic_information.genres}}</div>
-    <div>Styles: {{record.basic_information.styles}}</div>
+    <ul>Genres:
+        <li v-for="item in record.basic_information.genres" v-bind:key=item>{{item}}</li>
+    </ul>
+    <ul>Styles:
+        <li v-for="item in record.basic_information.styles" v-bind:key=item>{{item}}</li>
+    </ul>
   </div>
 </template>
 
@@ -39,16 +43,21 @@ export default {
 </script>
 
 <style>
-
+.detail-view{
+    display:flex;
+}
 .card .record-title {
     font-size: 1.5rem;
 }
 
 .record-image {
-    width: 80%;
+    width: 35%;
 }
 
 .card .record-artist {
     font-size: 1rem;
 }
+ul {  
+list-style-type: none;  
+}  
 </style>
