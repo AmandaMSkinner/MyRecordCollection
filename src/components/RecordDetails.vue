@@ -1,17 +1,19 @@
 <template>
-  <div>
-    {{this.$route.params.id}}<br>
-    {{this.$store.state.releases.releases.length}}
-    THIS WILL BE A DETAIL VIEW<br>
-    {{this.$store.state.releases.releases[2].basic_information.id}}<br>
-    {{record}}
+  <div class="detail-view">
+    <router-link to="/">Return to Collection</router-link>
+    <h2 class="record-title"><a v-bind:href="'/record/'+record.id">{{ record.basic_information.title }}</a></h2>
+    <img class="record-image" v-bind:src="record.basic_information.cover_image">
+    <h3 class="record-artist">{{record.basic_information.artists[0].name}} - {{record.basic_information.year}}</h3>
+    <div>Record Label: {{record.basic_information.labels[0].name}}</div><br>
+    <div>Catalog Number: {{record.basic_information.labels[0].catno}}</div>
+    <div>Genres: {{record.basic_information.genres}}</div>
+    <div>Styles: {{record.basic_information.styles}}</div>
   </div>
 </template>
 
 <script>
 
 import { mapActions, mapGetters } from "vuex";
-
 export default {
   name: "record-details",
   computed: {
@@ -38,4 +40,15 @@ export default {
 
 <style>
 
+.card .record-title {
+    font-size: 1.5rem;
+}
+
+.record-image {
+    width: 80%;
+}
+
+.card .record-artist {
+    font-size: 1rem;
+}
 </style>
