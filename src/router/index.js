@@ -10,25 +10,25 @@ import BookDetails from '../components/BookDetails.vue'
 Vue.use(VueRouter);
 
 const routes = [
- {path: '/',
+ {path: '/MyRecordCollection/',
   name: 'best-and-new',
   components: {
     default: BestSellerList,
     extra: NewReleasesList}
 },
-{path: '/myBooks',
+{path: '/MyRecordCollection/myBooks',
   name: 'my-books',
   components: {
     default: ReadingList,
     extra: AddBookLink}
 },
-{path: '/addBook',
+{path: '/MyRecordCollection/addBook',
   name: 'add-book',
   components: {
     default: NewBookForm,
     }
 },
-{path: '/book/:isbn',
+{path: '/MyRecordCollection/book/:isbn',
   name: 'book-details',
     component: BookDetails,
   }
