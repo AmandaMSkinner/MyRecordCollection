@@ -2,7 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 //Reference: https://medium.com/@esmaydogdu/vuex-fetch-b0e8472e7676
 const DISCOG_TOKEN="bIplSnkEnnCaSkeYTZeVeNSKsvjxtsWCrAKXauxi";
-const DISCOG_URL ="https://api.discogs.com/users/amandaskinner/collection/folders/0/releases?token="+DISCOG_TOKEN+"&per_page=500&sort=artist";
+const DISCOG_URL ="https://api.discogs.com/users/amandaskinner/collection/folders/6034833/releases?token="+DISCOG_TOKEN+"&per_page=250&sort=artist";
+//Only Records in my Showcase Folder go here!
 
 Vue.use(Vuex);
 
