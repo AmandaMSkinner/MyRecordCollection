@@ -2,6 +2,7 @@
   <div class="card">
     <h2 class="record-title">{{record.basic_information.title}}</h2>
     <h3 class="record-artist">{{record.basic_information.artists[0].name}}</h3>
+     <img class="record-image" v-bind:src="record.basic_information.cover_image">
   </div>
 </template>
 
@@ -33,6 +34,10 @@ export default {
 
 .card .record-title {
     font-size: 1.5rem;
+}
+
+.record-image {
+    width: 80%;
 }
 
 .card .record-artist {
