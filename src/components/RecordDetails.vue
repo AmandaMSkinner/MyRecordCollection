@@ -2,16 +2,18 @@
   <div class="detail-view"><div>
     <router-link to="/">Return to Collection</router-link>
     <h2 class="record-title">{{ record.basic_information.title }}</h2>
-    <img class="record-image" v-bind:src="record.basic_information.cover_image">
+    <img class="record-detail-image" v-bind:src="record.basic_information.cover_image">
     <h3 class="record-artist">{{record.basic_information.artists[0].name}} - {{record.basic_information.year}}</h3></div>
-    <div>Record Label: {{record.basic_information.labels[0].name}}</div><br>
-    <div>Catalog Number: {{record.basic_information.labels[0].catno}}</div>
-    <ul>Genres:
+    <div class="secondary">
+    <div><b>Record Label:</b> {{record.basic_information.labels[0].name}}</div><br>
+    <div><b>Catalog Number:</b> {{record.basic_information.labels[0].catno}}</div>
+    <ul><b>Genres:</b>
         <li v-for="item in record.basic_information.genres" v-bind:key=item>{{item}}</li>
     </ul>
-    <ul>Styles:
+    <ul><b>Styles:</b>
         <li v-for="item in record.basic_information.styles" v-bind:key=item>{{item}}</li>
     </ul>
+  </div>
   </div>
 </template>
 
@@ -50,7 +52,7 @@ export default {
     font-size: 1.5rem;
 }
 
-.record-image {
+.record-detail-image {
     width: 35%;
 }
 
@@ -59,5 +61,11 @@ export default {
 }
 ul {  
 list-style-type: none;  
+}
+.secondary{
+    margin-top:70px;
+    display:flex;
+    flex-direction:column;
+    text-align:end;
 }  
 </style>
