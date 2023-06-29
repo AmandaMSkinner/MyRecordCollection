@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h2 class="record-title">{{record.basic_information.title}}</h2>
+    <h2 class="record-title"><a v-bind:href="'/record/'+record.id">{{ record.basic_information.title }}</a></h2>
     <img class="record-image" v-bind:src="record.basic_information.cover_image">
     <h3 class="record-artist">{{record.basic_information.artists[0].name}} - {{record.basic_information.year}}</h3>
   </div>
