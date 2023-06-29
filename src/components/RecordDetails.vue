@@ -1,8 +1,10 @@
 <template>
   <div>
+    {{this.$route.params.id}}<br>
+    {{this.$store.state.releases.releases.length}}
+    THIS WILL BE A DETAIL VIEW<br>
+    {{this.$store.state.releases.releases[2].basic_information.id}}<br>
     {{record}}
-    THIS WILL BE A DETAIL VIEW
-    {{this.$store.state.releases}}
   </div>
 </template>
 
@@ -15,12 +17,12 @@ export default {
   computed: {
     ...mapGetters(["releases"]),
     record() {
-        /*for(let i=0;i<this.$store.state.releases.length;i++){
-            if(this.$store.state.releases[i].id===this.$route.params.id){
-                return this.$store.state.releases[i];
+        for(let i=0;i<this.$store.state.releases.releases.length;i++){
+            if(this.$store.state.releases.releases[i].basic_information.id==this.$route.params.id){
+                return this.$store.state.releases.releases[i];
             }
-        }*/
-        return "nothing";
+        }
+        return this.$store.state.releases.releases[0];
     }
   },
   components: {
