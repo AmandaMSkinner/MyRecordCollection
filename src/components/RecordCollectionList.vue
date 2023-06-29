@@ -11,17 +11,22 @@
 
 <script>
 import RecordCard from "../components/RecordCard.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "record-collection-list",
   computed: {
-    records() {
-      return this.$store.state.releases;
+    ...mapGetters(["releases"]),
   },
   components: {
     RecordCard,
   },
-}
+  methods:{
+    ...mapActions(["fetchAllReleases"]),},
+
+    created() {
+    this.fetchAllReleases();
+  },
 }
 </script>
 

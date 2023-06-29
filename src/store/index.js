@@ -7,28 +7,32 @@ const DISCOG_URL ="https://api.discogs.com/users/amandaskinner/collection/folder
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  
   state: {
-    releases: [
-      {album: "title",
-       band: "artist"}
-    ],
+    releases: [],
   },
+  
   mutations: {
-    setReleases(state,releases){
-      state.releases=releases[0];
-    }
+    setReleases(state, releases) {
+      state.releases = releases;
+    },
   },
+  
   actions: {
-    fetchCollectionData(context){
+    fetchAllReleases(context) {
       return fetch(DISCOG_URL)
-      .then(response=>response.json)
-      .then((data)=>{
-        context.commit("setReleases",data);
-      });
-    }
+        .then((response) => response.json())
+        .then((data) => {
+          context.commit("setReleases", data);
+        })
+        .catch((err) => console.error(err));
+    },
   },
-  modules: {},
-  // Strict should not be used in production code. It is used here as a
-  // learning aid to warn you if state is modified without using a mutation.
-  strict: true
+  
+  getters: {
+    releases(state) {
+      return state.releases;
+    },
+  },
+  
 });
