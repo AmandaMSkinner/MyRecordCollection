@@ -2,7 +2,8 @@
   <div class="card">
     <h2 class="record-title">{{record.basic_information.title}}</h2>
     <h3 class="record-artist">{{record.basic_information.artists[0].name}}</h3>
-     <img class="record-image" v-bind:src="record.basic_information.cover_image">
+    <img class="record-image" v-bind:src="record.basic_information.cover_image">
+    <h4 class="record-year">{{record.basic_information.year}}</h4>
   </div>
 </template>
 
