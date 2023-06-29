@@ -1,28 +1,42 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import RecordCollectionList from "../components/RecordCollectionList.vue";
-import RecordDetails from "../components/RecordDetails.vue"
-
-//import { createRouter, createWebHistory } from 'vue-router'
+import BestSellerList from '../components/BestSellerList.vue';
+import NewReleasesList from '../components/NewReleasesList.vue';
+import ReadingList from '../components/ReadingList.vue'
+import NewBookForm from '../components/NewBookForm.vue'
+import AddBookLink from '../components/AddBookLink.vue'
+import BookDetails from '../components/BookDetails.vue'
 
 Vue.use(VueRouter);
 
-
 const routes = [
  {path: '/',
-  name: 'record-list',
+  name: 'best-and-new',
   components: {
-    default: RecordCollectionList,
+    default: BestSellerList,
+    extra: NewReleasesList}
+},
+{path: '/myBooks',
+  name: 'my-books',
+  components: {
+    default: ReadingList,
+    extra: AddBookLink}
+},
+{path: '/addBook',
+  name: 'add-book',
+  components: {
+    default: NewBookForm,
+    }
+},
+{path: '/book/:isbn',
+  name: 'book-details',
+    component: BookDetails,
   }
- },{
- path: '/record/:id',
-  name: 'record-details',
-    component: RecordDetails,
-  }
+
 ];
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes
 });
 
